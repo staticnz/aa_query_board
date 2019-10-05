@@ -1,0 +1,83 @@
+{
+ 	"manifestVersion": 1,
+ 	"id": "aa-query-board",
+ 	"publisher": "almost-antarctic",
+ 	"version": "1.0.41",
+ 	"name": "AA Query Board",
+ 	"description": "Show Query results in board view by state. Useful for working across multiple area paths and using business value to determine order",
+ 	"tags": [ 
+ 		"agile",
+ 		"query",
+ 		"kanban",
+ 		"board"
+ 	],
+ 	"icons": {
+        "default": "images/aa-logo.png"
+    },
+ 	"content": {
+ 		"details": {
+ 			"path": "overview.md"
+ 		}
+ 	},
+ 	"screenshots": [
+ 		{
+ 			"path": "screenshots/screen1.png"
+ 		}
+ 	],
+ 	"public": true,
+ 	"categories": ["Azure Repos"],
+ 	"targets": [
+ 		{
+ 			"id": "Microsoft.VisualStudio.Services"
+ 		}
+ 	],
+ 	"contributions": [
+ 		{
+ 			"id": "almost-antarctic.QueryBoard.Query.Tabs",
+ 			"type": "ms.vss-web.tab",
+			"description": "Adds a tab to the query results",
+ 			"targets": [
+ 				"ms.vss-work-web.query-tabs"
+ 			],
+ 			"properties": {
+ 				"name": "Board",
+				"title": "Board",
+ 				"uri": "index.html"
+ 			}
+ 		}
+ 	],
+	"scopes": [
+		"vso.work"
+	],
+ 	"files": [
+ 		{
+ 			"path": "index.html",
+ 			"addressable": true
+ 		},
+ 		{
+ 			"path": "node_modules/vss-web-extension-sdk/lib",
+ 			"addressable": true,
+ 			"packagePath": "lib"
+ 		},
+ 		{
+ 			"path": "scripts",
+ 			"addressable": true
+ 		},
+ 		{
+ 			"path": "css",
+ 			"addressable": true
+ 		},
+ 		{
+ 			"path": "sdk/scripts",
+ 			"addressable": true
+ 		},
+ 		{
+ 			"path": "screenshots",
+ 			"addressable": true
+ 		},
+ 		{
+ 			"path": "images",
+ 			"addressable": true
+ 		}
+ 	]
+ }

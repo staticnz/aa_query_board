@@ -1,0 +1,49 @@
+<html dir="ltr">
+
+<head>
+
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="sdk/scripts/VSS.SDK.js"></script>
+    <script src="scripts/react-redux.js"></script>
+    <script src="scripts/interact.js"></script>
+    <script src="scripts/bundle.js"></script>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        VSS.init({
+            explicitNotifyLoaded: true,
+            usePlatformScripts: true,
+            usePlatformStyles: true
+        });
+
+        VSS.ready(function() {
+            var updateConfiguration = function(tabContext) {
+                VSS.require(["scripts/bundle"], function(Bundle) {
+                    Bundle.init("querybased-board-view", tabContext);
+                });
+            }
+            updateConfiguration(VSS.getConfiguration());
+
+            VSS.register(VSS.getContribution().id, {
+                pageTitle: function(state) {
+                    return "Board";
+                },
+                updateContext: updateConfiguration,
+                isInvisible: function(state) {
+                    return false;
+                },
+                isDisabled: function(state) {
+                    return false;
+                }
+            });
+
+            VSS.notifyLoadSucceeded();
+        });
+    </script>
+
+    <div id="querybased-board-view"></div>
+</body>
+
+</html>
